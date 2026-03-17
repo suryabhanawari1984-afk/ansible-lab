@@ -1,0 +1,12 @@
+- name: Template Example
+  hosts: web
+  become: yes
+
+  vars:
+    user_name: Suryabhan
+
+  tasks:
+    - name: Create dynamic file
+      template:
+        src: templates/test.j2
+        dest: /tmp/template.txt

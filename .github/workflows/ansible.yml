@@ -1,0 +1,23 @@
+name: Ansible CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ansible:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Ansible
+        run: |
+          sudo apt update
+          sudo apt install ansible -y
+
+      - name: Run Playbook
+        run: |
+          ansible-playbook -i hosts multi-task.yml
