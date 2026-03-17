@@ -1,0 +1,9 @@
+- name: Copy File Example
+  hosts: local
+  become: yes
+
+  tasks:
+    - name: Copy file to /tmp
+      copy:
+        src: test.txt
+        dest: /tmp/test.txt

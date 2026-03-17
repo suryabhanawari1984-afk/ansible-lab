@@ -1,0 +1,19 @@
+- name: Multi Task Playbook
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Start nginx
+      service:
+        name: nginx
+        state: started
+
+    - name: Copy file
+      copy:
+        content: "Hello DevOps 🚀"
+        dest: /tmp/devops.txt
